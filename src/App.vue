@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <toDoForm :caixinhas="caixinhas" @addCaixa="addCaixa($event)"/>
-    <toDoList :caixinhas="caixinhas"/>
+    <toDoForm @addCaixa="addCaixa($event)"/>
+    <toDoList/>
   </div>
 </template>
-
+ 
 <script>
 import toDoForm from "./components/ToDoForm.vue"
 import toDoList from "./components/ToDoList.vue"
@@ -16,19 +16,13 @@ export default {
   }, 
   data: function() {
     return{
-      caixinhas: [{
-        titulo: "Estudar"
-      },{
-        titulo: "Jogar"
-      }
-      ]
     }
   }, methods:{
     addCaixa: function(event){
       this.caixinhas.push({titulo: event.titulo})
     }
-    }
   }
+}
 </script>
 
 <style>

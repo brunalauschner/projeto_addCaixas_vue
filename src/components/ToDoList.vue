@@ -1,23 +1,28 @@
 <template>
-  <div id="caixa">
+  <div id="caix">
       <h5 id="titu">Caixas:</h5>
-      <div class="caixinhas" v-for="(caixa, index) in caixinhas" :key = "index" >
-          {{caixa.titulo}}
+      <div class="caixinh" v-for="(coisa, index) in coisas" :key = "index" >
+          {{coisa.titulo}}
       </div>
   </div>
 </template>
-
+ 
 
 <script>
+
 export default {
- name: "Caixas",
- props: ['caixinhas']
+ name: "ToDoList", 
+ computed: {
+     coisas(){
+         return this.$store.state.caixinhas
+     }
+ }
 }
 </script>
 
 
 <style>
-#caixa{
+#caix{
     width: 450px;
     height: 200px;
     border: 1px solid #FFF;
@@ -25,7 +30,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
 }
-.caixinhas{
+.caixinh{
     width: 70px;
     height: 50px;
     border: 1px solid #FFF;

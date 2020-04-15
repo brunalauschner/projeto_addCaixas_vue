@@ -4,21 +4,26 @@
     <h5 id="info">Nova Caixa:</h5>
     <input id="caixaTexto" type="text" placeholder="Nova Tarefa?" v-model="titulo">
     <button id="botao" @click="addCaixa">OK</button>
-
+ 
   </div>
 </template>
 
 <script>
 export default {
     name: "ToDoForm",
-    props: ['titulos'],
+    computed: {
+        titulos(){
+            return this.$store.state.caixinhas
+        }
+    },
+
     data: function(){
         return{
             titulo: ""
         }
     }, methods: {
         addCaixa: function(){
-            this.$emit('addCaixa', {
+            this.$store.commit('addCaixa', {
                 titulo: this.titulo
             })
         }
